@@ -1,4 +1,6 @@
-// import { ArrowRightIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { useDispatch } from "react-redux";
+import { removeTask, updateStatus } from "../../redux/features/tasks/taskSlice";
 
 const TaskCard = () => {
   const task = {
@@ -11,6 +13,8 @@ const TaskCard = () => {
     assignedTo: "Mir Hussain",
     priority: "high",
   };
+  const dispatch = useDispatch();
+  const updatedStatus = null;
 
   return (
     <div className="bg-secondary/10 rounded-md p-5">
@@ -28,7 +32,7 @@ const TaskCard = () => {
       <div className="flex justify-between mt-3">
         <p>{task?.date}</p>
         <div className="flex gap-3">
-          {/* <button onClick={() => dispatch(removeTask(task.id))} title="Delete">
+          <button onClick={() => dispatch(removeTask(task.id))} title="Delete">
             <TrashIcon className="h-5 w-5 text-red-500" />
           </button>
           <button
@@ -38,7 +42,7 @@ const TaskCard = () => {
             title="In progress"
           >
             <ArrowRightIcon className="h-5 w-5 text-primary" />
-          </button> */}
+          </button>
         </div>
       </div>
     </div>
